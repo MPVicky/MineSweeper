@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(
+    to top left,
+    rgb(5, 54, 2),
+    rgba(172, 252, 166, 0.233)
+  );
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  font-family: "Aclonica", sans-serif;
+  padding: 5px;
+}
+
+.title {
+  /* display: flex; */
+  /* justify-content: center; */
+  align-items: center;
+  height: 70px;
+}
+
+h1 {
+  display: inline-block;
+  margin: auto;
+  margin-bottom: 12px;
+  text-shadow: 1px 1px #d5ebd4;
+}
+
+h1,
+h3,
+.best {
+  color: rgb(102, 25, 25);
+}
+
+.levels button {
+  width: 100px;
+  height: 26px;
+  color: rgb(102, 25, 25);
+  border-color: rgb(102, 25, 25);
+  background: linear-gradient(to top, rgb(128, 155, 125), rgb(253, 255, 253));
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 3px;
+  margin-left: 7px;
+  margin-right: 7px;
+  cursor: pointer;
+}
+
+.game-options button {
+  border: 2px solid darkgreen;
+  background: linear-gradient(to top, rgb(128, 155, 125), rgb(253, 255, 253));
+  width: 100px;
+  height: 45px;
+  margin-top: 5px;
+  margin-bottom: 12px;
+  border-radius: 3px;
+  font-weight: 700;
+  color: darkgreen;
+}
+
+.levels button:hover {
+  font-size: 17px;
+}
+
+.game-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin-top: 13px;
+}
+
+.mines,
+.time-left,
+.game-time {
+  width: 165px;
+}
+
+.hints,
+.safe {
+  font-size: 13px;
+  padding: 3px;
+  width: 131px;
+  height: 42px;
+  border: 2px solid rgba(102, 25, 25, 0.568);
+  border-right: 1px solid wheat;
+  border-bottom: 1px solid wheat;
+  background-color: rgba(102, 25, 25, 0.144);
+}
+
+h3 {
+  display: inline;
+  margin: 10px;
+  width: 150px;
+  height: 47px;
+  cursor: context-menu;
+  font-size: 15px;
+}
+
+.hints {
+  cursor: pointer;
+}
+
+.end-msg {
+  height: 14px;
+}
+
+table {
+  margin: auto;
+  margin-top: 5px;
+}
+
+td {
+  border: 2px solid rgba(102, 25, 25, 0.568);
+  border-right: none;
+  border-bottom: none;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(102, 25, 25, 0.37);
+  cursor: pointer;
+}
+
+.count1 {
+  color: red;
+}
+.count2 {
+  color: blue;
+}
+.count3 {
+  color: darkgreen;
+}
+.count4 {
+  color: purple;
+}
+.count5 {
+  color: orange;
+}
+.count6 {
+  color: brown;
+}
+.count7 {
+  color: darkcyan;
+}
+.count8 {
+  color: darkolivegreen;
+}
+
+.covered {
+  background-color: rgb(124, 58, 58);
+  border: 2px solid rgb(65, 16, 16);
+  border-right: none;
+  border-bottom: none;
+}
+
+.msg {
+  height: 19px;
+}
+
+.footer {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 25px;
+  width: 100%;
+  padding-top: 3px;
+  background-color: rgb(41, 110, 38);
+  color: white;
+  text-align: center;
+}
+
+.hidden {
+  opacity: 0%;
+}

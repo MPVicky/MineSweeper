@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sprint1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aclonica&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body onload="init()">
+    <div class="title">
+      <h1>MineSweeper</h1>
+      <div class="best hidden">Best Time:</div>
+    </div>
+    <div class="game-options">
+      <button class="boom" onclick="is7Boom(this)">
+        PLAY <br />
+        7 BOOM
+      </button>
+      <button class="man-mode" onclick="setManuallyMode(this)">
+        MANUALLY <br />
+        MODE
+      </button>
+    </div>
+    <div class="levels">
+      <button onclick="init(4, 2)">Beginner</button>
+      <button onclick="init(8, 12)">Medium</button>
+      <button onclick="init(12, 30)">Expert</button>
+    </div>
+    <div class="game-info">
+      <h3 class="lives"></h3>
+      <h3 class="mines-left"></h3>
+      <h3 class="game-time">
+        Game Time: <span class="min">00</span>:<span class="sec">00</span>
+      </h3>
+      <h3 onclick="askHint(this)" class="hints"></h3>
+      <h3 onclick="markSafe()" class="safe"></h3>
+    </div>
+    <div class="msg hidden"></div>
+    <div class="table-container"></div>
+    <div class="board"></div>
+    <div class="footer">- Vicky Polatov -</div>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/mines.js"></script>
+    <script src="js/playGame.js"></script>
+    <script src="js/hints.js"></script>
+    <script src="js/modes.js"></script>
+  </body>
+</html>
