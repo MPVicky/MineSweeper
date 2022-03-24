@@ -13,6 +13,8 @@ body {
   height: 100vh;
   font-family: "Aclonica", sans-serif;
   padding: 5px;
+  border: 7px solid rgb(102, 25, 25);
+  border-bottom: none;
 }
 
 .title {
@@ -76,7 +78,7 @@ h3,
 .mines,
 .time-left,
 .game-time {
-  width: 165px;
+  width: 95px;
 }
 
 .hints,
@@ -170,6 +172,7 @@ td {
   background-color: rgb(41, 110, 38);
   color: white;
   text-align: center;
+  border-top: 2px solid rgb(102, 25, 25);
 }
 
 .hidden {

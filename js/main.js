@@ -3,6 +3,11 @@
 const MINE = '💥'
 const EMPTY = ' '
 
+const winSound = new Audio('audio/winSound.wav');
+const loseSound = new Audio('audio/loseSound.wav');
+const hintSound = new Audio('audio/hintSound.wav');
+const safeSound = new Audio('audio/safeSound.wav');
+
 var gBoard;
 
 var gLevel = {
@@ -110,6 +115,7 @@ function gameOver(isWin) {
     var elEndMsg = document.querySelector('.msg')
     //WIN:
     if (isWin) {
+        winSound.play();
         var minStr = document.querySelector('.min').innerText
         var secStr = document.querySelector('.sec').innerText
         var timeUnits = minStr === '00' ? 'seconds' : 'minutes'
@@ -126,6 +132,7 @@ function gameOver(isWin) {
 
     } else {
         //LOSE:
+        loseSound.play();
         document.querySelector('.lives').innerText = 'Lives:\n 💔';
         elEndMsg.innerText = 'YOU LOST... TRY AGAIN!'
         elEndMsg.style.color = 'red'

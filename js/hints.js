@@ -21,11 +21,13 @@ function askHint(elHints) {
     gIsHint = !gIsHint;
 }
 
-function useHint(i, j) {
+function useHint(idxI, idxJ) {
+    hintSound.pause();
+    hintSound.play();
     gIsHint = false;
     gGame.hints--
     var elHints = document.querySelector('.hints');
-    var neighbors = getNeighbors(gBoard, i, j);
+    var neighbors = getNeighbors(gBoard, idxI, idxJ);
     var str = 'Click For Hint \n'
     for (var i = 0; i < gGame.hints; i++) {
         str += '💡'
@@ -35,22 +37,32 @@ function useHint(i, j) {
     elHints.style.fontSize = "14px"
     elHints.style.color = "rgb(102, 25, 25)"
 
+    showHint(true, idxI, idxJ);
     for (var i = 0; i < neighbors.length; i++) {
         if (neighbors[i].isShown || neighbors[i].isMarked) continue;
-        var elCell = document.querySelector(`.cell-${neighbors[i].i}-${neighbors[i].j}`)
-        elCell.classList.remove('covered');
-        if (neighbors[i].minesAroundCount) elCell.innerText = neighbors[i].minesAroundCount
-        else if (neighbors[i].isMine) elCell.innerText = MINE
-        else elCell.innerText = EMPTY;
+        showHint(true, neighbors[i].i, neighbors[i].j)
     }
+
     setTimeout(function () {
+        showHint(false, idxI, idxJ);
         for (var i = 0; i < neighbors.length; i++) {
             if (neighbors[i].isShown || neighbors[i].isMarked) continue;
-            var elCell = document.querySelector(`.cell-${neighbors[i].i}-${neighbors[i].j}`)
-            elCell.classList.add('covered');
-            elCell.innerText = ''
+            showHint(false, neighbors[i].i, neighbors[i].j)
         }
     }, 1000)
+}
+
+function showHint(isReveal, i, j) {
+    var elCell = document.querySelector(`.cell-${i}-${j}`)
+    if (isReveal) {
+        elCell.classList.remove('covered');
+        if (gBoard[i][j].minesAroundCount) elCell.innerText = gBoard[i][j].minesAroundCount
+        else if (gBoard[i][j].isMine) elCell.innerText = MINE
+        else elCell.innerText = EMPTY;
+    } else {
+        elCell.classList.add('covered');
+        elCell.innerText = ''
+    }
 }
 
 function markSafe() {
@@ -68,6 +80,7 @@ function markSafe() {
 
     if (safes.length === 0) safeStr = 'NO SAFE PLACES...'
     else {
+        safeSound.play();
         var randomI = getRandomInt(0, safes.length)
         var elCell = document.querySelector(`.cell-${safes[randomI].i}-${safes[randomI].j}`)
         elCell.innerText = '⭐'
