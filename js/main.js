@@ -1,18 +1,22 @@
 'use strict'
 
-const MINE = '💥'
+// const MINE = '💥'
+const MINE = '<img src="img/mine.png" width="17">'
+const FLAG = '<img src="img/flag1.png" width="17">'
 const EMPTY = ' '
+
 
 const winSound = new Audio('audio/winSound.wav');
 const loseSound = new Audio('audio/loseSound.wav');
 const hintSound = new Audio('audio/hintSound.wav');
 const safeSound = new Audio('audio/safeSound.wav');
+const mineTouchSound = new Audio('audio/mineTouchSound.wav');
 
 var gBoard;
 
 var gLevel = {
     size: 4,
-    mines: 2,
+    mines: 3,
     is7Boom: false,
     isManually: false,
     manuallyMinesCount: 0,
@@ -33,13 +37,14 @@ var gGame = {
 var gStartTime;
 var gInteval;
 
-function init(size = 4, mines = 2) {
+function init(size = 4, mines = 3) {
     document.querySelector('.lives').innerText = 'Lives: \n 🧡🧡🧡'
     document.querySelector('.min').innerText = '00'
     document.querySelector('.sec').innerText = '00'
     document.querySelector('.hints').innerText = 'Click For Hint \n💡💡💡'
     document.querySelector('.safe').innerText = '  Safe Clicks \n⭐⭐⭐'
     document.querySelector('.msg').classList.add('hidden')
+    document.querySelector('.smiley').src = 'img/smiley.jpg'
     gGame.minesLeft = mines;
     document.querySelector('.mines-left').innerText = `Mines Left: \n ${gGame.minesLeft}`;
     if (gInteval) clearInterval(gInteval);
@@ -113,6 +118,7 @@ function gameOver(isWin) {
     clearInterval(gInteval);
     gInteval = null;
     var elEndMsg = document.querySelector('.msg')
+    var elSmiley = document.querySelector('.smiley')
     //WIN:
     if (isWin) {
         winSound.play();
@@ -121,6 +127,7 @@ function gameOver(isWin) {
         var timeUnits = minStr === '00' ? 'seconds' : 'minutes'
         elEndMsg.innerText = `YOU WON! You did it in ${minStr}:${secStr} ${timeUnits}!`
         elEndMsg.style.color = 'green'
+        elSmiley.src = 'img/win.jpg'
 
         var bestTime = localStorage.getItem('bestTime')
         var currTime = +minStr * 60 * 1000 + +secStr * 1000
@@ -136,10 +143,15 @@ function gameOver(isWin) {
         document.querySelector('.lives').innerText = 'Lives:\n 💔';
         elEndMsg.innerText = 'YOU LOST... TRY AGAIN!'
         elEndMsg.style.color = 'red'
+        elSmiley.src = 'img/sad.jpg'
         for (var i = 0; i < gBoard.length; i++) {
             for (var j = 0; j < gBoard.length; j++) {
+                var elCell = document.querySelector(`.cell-${i}-${j}`)
+                if (gBoard[i][j].isMarked) {
+                    gGame.markedCount--
+                    gGame.minesLeft++
+                }
                 if (gBoard[i][j].isMine) {
-                    var elCell = document.querySelector(`.cell-${i}-${j}`)
                     reveal(elCell, i, j);
                 }
             }
@@ -159,5 +171,8 @@ function showBestTime(ms) {
     elBestTime.classList.remove('hidden');
 }
 
+function smileyClick() {
+    init(gLevel.size, gLevel.mines);
+}
 
 

@@ -20,8 +20,8 @@
     </div>
     <div class="game-options">
       <button class="boom" onclick="is7Boom(this)">
-        PLAY <br />
-        7 BOOM
+        7 BOOM <br />
+        MODE
       </button>
       <button class="man-mode" onclick="setManuallyMode(this)">
         MANUALLY <br />
@@ -29,24 +29,30 @@
       </button>
     </div>
     <div class="levels">
-      <button onclick="init(4, 2)">Beginner</button>
+      <button onclick="init(4, 3)">Beginner</button>
       <button onclick="init(8, 12)">Medium</button>
       <button onclick="init(12, 30)">Expert</button>
     </div>
     <div class="game-info">
-      <h3 class="lives"></h3>
-      <h3 class="mines-left"></h3>
-      <h3 class="game-time">
-        Game Time: <br />
-        <span class="min">00</span>:<span class="sec">00</span>
-      </h3>
-      <h3 onclick="askHint(this)" class="hints"></h3>
-      <h3 onclick="markSafe()" class="safe"></h3>
+      <div class="info-container">
+        <h3 class="lives"></h3>
+        <h3 class="mines-left"></h3>
+        <h3 class="game-time">
+          Game Time: <br />
+          <span class="min">00</span>:<span class="sec">00</span>
+        </h3>
+      </div>
+      <img class="smiley" src="img/smiley.jpg" alt="" onclick="smileyClick()" />
+      <!-- //////////// -->
+      <div class="hints-container">
+        <h3 onclick="askHint(this)" class="hints"></h3>
+        <h3 onclick="markSafe()" class="safe"></h3>
+      </div>
     </div>
     <div class="msg hidden"></div>
     <div class="table-container"></div>
     <div class="board"></div>
-    <div class="footer">- Vicky Polatov -</div>
+    <div class="footer"><span>- Vicky Polatov -</span></div>
     <script src="js/utils.js"></script>
     <script src="js/main.js"></script>
     <script src="js/mines.js"></script>

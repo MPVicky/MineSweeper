@@ -3,7 +3,7 @@
 var gIsHint;
 
 function askHint(elHints) {
-    if (!gGame.hints) return;
+    if (!gGame.hints || !gGame.isOn) return;
     if (!gStartTime) {
         elHints.innerText = 'start playing...'
         setTimeout(() => {
@@ -57,7 +57,7 @@ function showHint(isReveal, i, j) {
     if (isReveal) {
         elCell.classList.remove('covered');
         if (gBoard[i][j].minesAroundCount) elCell.innerText = gBoard[i][j].minesAroundCount
-        else if (gBoard[i][j].isMine) elCell.innerText = MINE
+        else if (gBoard[i][j].isMine) elCell.innerHTML = MINE
         else elCell.innerText = EMPTY;
     } else {
         elCell.classList.add('covered');
@@ -66,7 +66,7 @@ function showHint(isReveal, i, j) {
 }
 
 function markSafe() {
-    if (!gGame.safes) return;
+    if (!gGame.safes || !gGame.isOn) return;
     var elSafe = document.querySelector('.safe');
     var safes = [];
     var safeStr;

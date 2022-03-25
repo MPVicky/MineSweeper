@@ -3,23 +3,26 @@
 }
 
 body {
-  background: linear-gradient(
+  /* background: linear-gradient(
     to top left,
     rgb(5, 54, 2),
     rgba(172, 252, 166, 0.233)
-  );
+    ); */
+  background-image: url("../img/background4.jpg");
+  background-size: cover;
   align-items: center;
   text-align: center;
-  height: 100vh;
+  position: absolute;
   font-family: "Aclonica", sans-serif;
-  padding: 5px;
-  border: 7px solid rgb(102, 25, 25);
-  border-bottom: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  border: 7px ridge rgb(102, 25, 25);
 }
 
 .title {
-  /* display: flex; */
-  /* justify-content: center; */
   align-items: center;
   height: 70px;
 }
@@ -27,7 +30,8 @@ body {
 h1 {
   display: inline-block;
   margin: auto;
-  margin-bottom: 12px;
+  margin-bottom: 7px;
+  margin-top: 10px;
   text-shadow: 1px 1px #d5ebd4;
 }
 
@@ -37,25 +41,12 @@ h3,
   color: rgb(102, 25, 25);
 }
 
-.levels button {
-  width: 100px;
-  height: 26px;
-  color: rgb(102, 25, 25);
-  border-color: rgb(102, 25, 25);
-  background: linear-gradient(to top, rgb(128, 155, 125), rgb(253, 255, 253));
-  font-weight: 700;
-  font-size: 14px;
-  border-radius: 3px;
-  margin-left: 7px;
-  margin-right: 7px;
-  cursor: pointer;
-}
-
 .game-options button {
+  font-family: "Aclonica", sans-serif;
   border: 2px solid darkgreen;
   background: linear-gradient(to top, rgb(128, 155, 125), rgb(253, 255, 253));
   width: 100px;
-  height: 45px;
+  height: 38px;
   margin-top: 5px;
   margin-bottom: 12px;
   border-radius: 3px;
@@ -63,8 +54,28 @@ h3,
   color: darkgreen;
 }
 
+.levels {
+  height: 27px;
+}
+
+.levels button {
+  font-family: "Aclonica", sans-serif;
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 25px;
+  width: 100px;
+  color: rgb(102, 25, 25);
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 7px;
+  margin-right: 7px;
+  text-shadow: 0 0 4px #f3ff87;
+}
+
 .levels button:hover {
-  font-size: 17px;
+  font-size: 21px;
+  color: rgb(1, 31, 17);
 }
 
 .game-info {
@@ -72,25 +83,54 @@ h3,
   justify-content: center;
   align-items: center;
   height: 50px;
-  margin-top: 13px;
+  margin-top: 5px;
+  margin-right: 0px;
+  margin-left: 20px;
 }
 
-.mines,
-.time-left,
+.info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hints-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.lives,
+.mines-left,
 .game-time {
   width: 95px;
+  margin-left: 3px;
+  margin-right: 10px;
+}
+
+.lives {
+  width: 67px;
+}
+
+.smiley {
+  width: 50px;
+  margin-right: 20px;
+  margin-left: 20px;
+  border: 1px solid rgba(102, 25, 25);
 }
 
 .hints,
 .safe {
   font-size: 13px;
   padding: 3px;
-  width: 131px;
+  width: 113px;
   height: 42px;
   border: 2px solid rgba(102, 25, 25, 0.568);
   border-right: 1px solid wheat;
   border-bottom: 1px solid wheat;
   background-color: rgba(102, 25, 25, 0.144);
+  cursor: pointer;
 }
 
 h3 {
@@ -102,26 +142,26 @@ h3 {
   font-size: 15px;
 }
 
-.hints {
-  cursor: pointer;
+.msg {
+  height: 19px;
+  margin-top: 5px;
 }
 
-.end-msg {
-  height: 14px;
+.table-container {
+  margin-bottom: 8px;
 }
 
 table {
   margin: auto;
-  margin-top: 5px;
 }
 
 td {
   border: 2px solid rgba(102, 25, 25, 0.568);
   border-right: none;
   border-bottom: none;
-  width: 30px;
-  height: 30px;
-  background-color: rgba(102, 25, 25, 0.37);
+  width: 27px;
+  height: 26px;
+  background-color: rgba(102, 25, 25, 0.39);
   cursor: pointer;
 }
 
@@ -157,10 +197,6 @@ td {
   border-bottom: none;
 }
 
-.msg {
-  height: 19px;
-}
-
 .footer {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   position: fixed;
@@ -169,12 +205,20 @@ td {
   height: 25px;
   width: 100%;
   padding-top: 3px;
-  background-color: rgb(41, 110, 38);
-  color: white;
+  background-color: rgba(40, 110, 38, 0.747);
+  color: wheat;
   text-align: center;
-  border-top: 2px solid rgb(102, 25, 25);
+}
+
+.footer span {
+  background-color: rgba(40, 110, 38);
+  display: block;
+  margin: auto;
+  width: 139px;
+  outline: 3px solid rgba(40, 110, 38);
 }
 
 .hidden {
   opacity: 0%;
+  width: 100px;
 }

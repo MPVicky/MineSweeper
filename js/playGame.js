@@ -9,7 +9,6 @@ function cellClicked(elCell, i, j) {
     if (!gStartTime && !gLevel.isManually) {
         gStartTime = Date.now();
         gInteval = setInterval(renderClock, 1000);
-
         if (gLevel.is7Boom) {
             set7BoomMines();
         } else if (!isBoardSet()) {
@@ -21,21 +20,8 @@ function cellClicked(elCell, i, j) {
         setMine(i, j)
         return;
     }
-
     reveal(elCell, i, j);
-
-    if (gBoard[i][j].isMine) {
-        gGame.lives--
-        gGame.minesLeft--
-        document.querySelector('.mines-left').innerText = `Mines Left:\n ${gGame.minesLeft}`;
-        var elLives = document.querySelector('.lives');
-        var livesStr = 'Lives: \n';
-        for (var i = 0; i < gGame.lives; i++) {
-            livesStr += '🧡'
-        }
-        elLives.innerText = livesStr
-        if (gGame.lives === 0) gameOver(false);
-    }
+    if (gBoard[i][j].isMine) handleMine(i, j);
     if (checkWin()) gameOver(true);
 }
 
@@ -45,7 +31,7 @@ function reveal(elCell, i, j) {
     gGame.shownCount++;
     elCell.classList.remove('covered');
     if (gBoard[i][j].minesAroundCount) elCell.innerText = gBoard[i][j].minesAroundCount
-    else if (gBoard[i][j].isMine) elCell.innerText = MINE
+    else if (gBoard[i][j].isMine) elCell.innerHTML = MINE
     else {
         elCell.innerText = EMPTY;
         expandShown(i, j)
@@ -58,12 +44,16 @@ function cellMarked(elCell, ev, i, j) {
     if (gBoard[i][j].isMarked) {
         elCell.innerText = ''
         gGame.markedCount--
+        gGame.minesLeft++
     } else {
-        elCell.innerText = '🚩'
+        if (!gGame.minesLeft) return;
+        elCell.innerHTML = FLAG;
         gGame.markedCount++
+        gGame.minesLeft--
         if (checkWin()) gameOver(true);
     }
     gBoard[i][j].isMarked = !gBoard[i][j].isMarked
+    document.querySelector('.mines-left').innerText = `Mines Left:\n ${gGame.minesLeft}`;
 }
 
 

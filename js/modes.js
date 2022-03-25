@@ -83,7 +83,7 @@ function setMine(idxI, idxJ) {
     if (gLevel.manuallyMinesCount) {
         gBoard[idxI][idxJ].isMine = true;
         var elCell = document.querySelector(`.cell-${idxI}-${idxJ}`)
-        elCell.innerText = MINE;
+        elCell.innerHTML = MINE;
         gLevel.manuallyMinesCount--
         showMsg(gLevel.manuallyMinesCount);
     }
