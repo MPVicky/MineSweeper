@@ -40,13 +40,20 @@ function reveal(elCell, i, j) {
 
 function cellMarked(elCell, ev, i, j) {
     ev.preventDefault();
-    if (!gGame.isOn || gBoard[i][j].isShown) return;
+    if (!gGame.isOn || gBoard[i][j].isShown || gLevel.isManually) return;
     if (gBoard[i][j].isMarked) {
         elCell.innerText = ''
         gGame.markedCount--
         gGame.minesLeft++
     } else {
-        if (!gGame.minesLeft) return;
+        if (!gGame.minesLeft) {
+            var elMsg = document.querySelector('.msg');
+            elMsg.innerText = `NO FLAGS LEFT!`
+            elMsg.style.color = 'darkblue'
+            elMsg.classList.remove('hidden')
+            setTimeout(() => elMsg.classList.add('hidden'), 500);
+            return;
+        }
         elCell.innerHTML = FLAG;
         gGame.markedCount++
         gGame.minesLeft--

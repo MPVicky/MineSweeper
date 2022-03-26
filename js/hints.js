@@ -66,7 +66,7 @@ function showHint(isReveal, i, j) {
 }
 
 function markSafe() {
-    if (!gGame.safes || !gGame.isOn) return;
+    if (!gGame.safes || !gGame.isOn || gLevel.isManually) return;
     var elSafe = document.querySelector('.safe');
     var safes = [];
     var safeStr;

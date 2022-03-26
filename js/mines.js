@@ -71,7 +71,7 @@ function handleMine(i, j) {
     else if (!checkWin()) {
         mineTouchSound.play();
         var elSmiley = document.querySelector('.smiley')
-        elSmiley.src = 'img/mineTouch.jpg'
-        setTimeout(() => elSmiley.src = 'img/smiley.jpg', 400)
+        elSmiley.src = 'img/mineTouch.png'
+        setTimeout(() => elSmiley.src = 'img/smiley.png', 400)
     }
 }

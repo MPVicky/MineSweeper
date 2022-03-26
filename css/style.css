@@ -31,7 +31,7 @@ h1 {
   display: inline-block;
   margin: auto;
   margin-bottom: 7px;
-  margin-top: 10px;
+  margin-top: 18px;
   text-shadow: 1px 1px #d5ebd4;
 }
 
@@ -41,14 +41,20 @@ h3,
   color: rgb(102, 25, 25);
 }
 
+.best {
+  margin-top: 10px;
+}
+
 .game-options button {
   font-family: "Aclonica", sans-serif;
   border: 2px solid darkgreen;
   background: linear-gradient(to top, rgb(128, 155, 125), rgb(253, 255, 253));
   width: 100px;
   height: 38px;
-  margin-top: 5px;
-  margin-bottom: 12px;
+  margin-top: 31px;
+  margin-bottom: 8px;
+  margin-left: 7px;
+  margin-right: 7px;
   border-radius: 3px;
   font-weight: 700;
   color: darkgreen;
@@ -56,6 +62,7 @@ h3,
 
 .levels {
   height: 27px;
+  margin-top: 7px;
 }
 
 .levels button {
@@ -83,7 +90,7 @@ h3,
   justify-content: center;
   align-items: center;
   height: 50px;
-  margin-top: 5px;
+  margin-top: 20px;
   margin-right: 0px;
   margin-left: 20px;
 }
@@ -114,10 +121,9 @@ h3,
 }
 
 .smiley {
-  width: 50px;
+  width: 55px;
   margin-right: 20px;
   margin-left: 20px;
-  border: 1px solid rgba(102, 25, 25);
 }
 
 .hints,
@@ -205,20 +211,74 @@ td {
   height: 25px;
   width: 100%;
   padding-top: 3px;
-  background-color: rgba(40, 110, 38, 0.747);
+  background-color: rgba(55, 139, 49, 0.733);
   color: wheat;
   text-align: center;
 }
 
 .footer span {
-  background-color: rgba(40, 110, 38);
+  background-color: rgba(55, 139, 49);
   display: block;
   margin: auto;
   width: 139px;
-  outline: 3px solid rgba(40, 110, 38);
+  outline: 3px solid rgba(55, 139, 49);
 }
 
 .hidden {
   opacity: 0%;
-  width: 100px;
+}
+
+@media (max-width: 414px) {
+  body {
+    border: none;
+  }
+  .best {
+    margin-top: 10px;
+  }
+  .game-options button {
+    font-size: 10px;
+    width: 71px;
+    height: 31px;
+    margin-top: 25px;
+    margin-bottom: 19px;
+  }
+  .levels {
+    margin-left: 8px;
+  }
+  .game-info {
+    display: block;
+    flex-wrap: wrap;
+    margin-left: 5px;
+  }
+  .hints-container {
+    margin-right: 0px;
+    margin-top: 10px;
+  }
+  .lives,
+  .mines-left,
+  .game-time {
+    display: block;
+    font-size: 16px;
+    width: 100px;
+    height: 21px;
+    margin-left: 5px;
+    margin-right: 21px;
+    margin-top: 10px;
+  }
+  .lives {
+    margin-right: 4px;
+  }
+  .smiley {
+    flex-wrap: wrap;
+    display: block;
+    width: 35px;
+    margin: auto;
+    margin-top: 20px;
+  }
+  .msg {
+    margin-top: 121px;
+  }
+  .table-container {
+    margin-top: 6px;
+  }
 }

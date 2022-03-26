@@ -44,7 +44,7 @@ function init(size = 4, mines = 3) {
     document.querySelector('.hints').innerText = 'Click For Hint \n💡💡💡'
     document.querySelector('.safe').innerText = '  Safe Clicks \n⭐⭐⭐'
     document.querySelector('.msg').classList.add('hidden')
-    document.querySelector('.smiley').src = 'img/smiley.jpg'
+    document.querySelector('.smiley').src = 'img/smiley.png'
     gGame.minesLeft = mines;
     document.querySelector('.mines-left').innerText = `Mines Left: \n ${gGame.minesLeft}`;
     if (gInteval) clearInterval(gInteval);
@@ -127,7 +127,7 @@ function gameOver(isWin) {
         var timeUnits = minStr === '00' ? 'seconds' : 'minutes'
         elEndMsg.innerText = `YOU WON! You did it in ${minStr}:${secStr} ${timeUnits}!`
         elEndMsg.style.color = 'green'
-        elSmiley.src = 'img/win.jpg'
+        elSmiley.src = 'img/win.png'
 
         var bestTime = localStorage.getItem('bestTime')
         var currTime = +minStr * 60 * 1000 + +secStr * 1000
@@ -143,7 +143,7 @@ function gameOver(isWin) {
         document.querySelector('.lives').innerText = 'Lives:\n 💔';
         elEndMsg.innerText = 'YOU LOST... TRY AGAIN!'
         elEndMsg.style.color = 'red'
-        elSmiley.src = 'img/sad.jpg'
+        elSmiley.src = 'img/sad.png'
         for (var i = 0; i < gBoard.length; i++) {
             for (var j = 0; j < gBoard.length; j++) {
                 var elCell = document.querySelector(`.cell-${i}-${j}`)
