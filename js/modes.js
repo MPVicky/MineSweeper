@@ -61,7 +61,7 @@ function setManuallyMode(elBtn) {
         elBtn.style.color = 'darkgoldenrod'
         var elMsg = document.querySelector('.msg');
         elMsg.innerText = `${gLevel.manuallyMinesCount} mines left`
-        elMsg.style.color = 'brown'
+        elMsg.style.color = 'yellow'
         elMsg.classList.remove('hidden')
     } else {
         gLevel.manuallyMinesCount = 0;

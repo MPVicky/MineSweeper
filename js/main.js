@@ -126,7 +126,7 @@ function gameOver(isWin) {
         var secStr = document.querySelector('.sec').innerText
         var timeUnits = minStr === '00' ? 'seconds' : 'minutes'
         elEndMsg.innerText = `YOU WON! You did it in ${minStr}:${secStr} ${timeUnits}!`
-        elEndMsg.style.color = 'green'
+        elEndMsg.style.color = 'lightgreen'
         elSmiley.src = 'img/win.png'
 
         var bestTime = localStorage.getItem('bestTime')
