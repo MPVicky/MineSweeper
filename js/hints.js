@@ -2,6 +2,9 @@
 
 var gIsHint;
 
+// Miss rendering the text over and over - the text should be static,
+// the hint icons should be re-rendered when we use them.
+
 function askHint(elHints) {
     if (!gGame.hints || !gGame.isOn) return;
     if (!gStartTime) {
@@ -64,6 +67,8 @@ function showHint(isReveal, i, j) {
         elCell.innerText = ''
     }
 }
+
+// Same goes for safe marks here
 
 function markSafe() {
     if (!gGame.safes || !gGame.isOn || gLevel.isManually) return;

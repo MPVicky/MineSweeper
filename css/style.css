@@ -8,7 +8,7 @@ body {
     rgb(5, 54, 2),
     rgba(172, 252, 166, 0.233)
     ); */
-  background-image: url("../img/background13.jpg");
+  background-image: url("../img/background4.jpg");
   background-size: cover;
   align-items: center;
   text-align: center;
@@ -19,7 +19,7 @@ body {
   bottom: 0;
   left: 0;
   overflow: auto;
-  /* border: 7px ridge rgb(102, 25, 25); */
+  border: 7px ridge rgb(102, 25, 25);
 }
 
 .title {
@@ -31,7 +31,7 @@ h1 {
   display: inline-block;
   margin: auto;
   margin-bottom: 7px;
-  margin-top: 2px;
+  margin-top: 18px;
   text-shadow: 1px 1px #d5ebd4;
 }
 
@@ -42,7 +42,7 @@ h3,
 }
 
 .best {
-  margin-top: 1px;
+  margin-top: 10px;
 }
 
 .game-options button {
@@ -51,8 +51,8 @@ h3,
   background: linear-gradient(to top, rgb(128, 155, 125), rgb(253, 255, 253));
   width: 100px;
   height: 38px;
-  margin-top: 2px;
-  margin-bottom: 6px;
+  margin-top: 31px;
+  margin-bottom: 8px;
   margin-left: 7px;
   margin-right: 7px;
   border-radius: 3px;
@@ -90,7 +90,7 @@ h3,
   justify-content: center;
   align-items: center;
   height: 50px;
-  margin-top: 7px;
+  margin-top: 20px;
   margin-right: 0px;
   margin-left: 20px;
 }
@@ -149,13 +149,8 @@ h3 {
 }
 
 .msg {
-  display: block;
-  width: fit-content;
-  height: 15px;
-  margin: auto;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  background-color: #231e27;
+  height: 19px;
+  margin-top: 5px;
 }
 
 .table-container {
@@ -172,7 +167,7 @@ td {
   border-bottom: none;
   width: 27px;
   height: 26px;
-  background-color: rgba(177, 160, 112, 0.815);
+  background-color: rgba(102, 25, 25, 0.39);
   cursor: pointer;
 }
 
@@ -213,7 +208,7 @@ td {
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 19px;
+  height: 25px;
   width: 100%;
   padding-top: 3px;
   background-color: rgba(55, 139, 49, 0.733);
@@ -235,7 +230,7 @@ td {
 
 @media (max-width: 414px) {
   body {
-    background-image: url("../img/background4.jpg");
+    border: none;
   }
   .best {
     margin-top: 10px;

@@ -1,5 +1,11 @@
 'use strict'
 
+// Hi Vicky, I had a great time reading your code.
+// File structure is great, but for the playGame file - should be a part of main.js
+// you sometimes render elements which should be static - take notice around your code.
+// Overall you're very organized and and your code is logical and easy to read.
+// great work 👏
+
 // const MINE = '💥'
 const MINE = '<img src="img/mine.png" width="17">'
 const FLAG = '<img src="img/flag1.png" width="17">'
@@ -60,7 +66,7 @@ function init(size = 4, mines = 3) {
     gLevel.size = size;
     gLevel.mines = mines;
     var bestTime = localStorage.getItem('bestTime');
-    if (bestTime) showBestTime(bestTime)
+    if (bestTime) displayTime(bestTime)
     if (gLevel.isManually) showMsg(mines);
     gBoard = buildBoard();
     renderBoard()
@@ -86,6 +92,8 @@ function buildBoard() {
     }
     return board
 }
+
+// No reson to render the table and table body over and over - should be static.
 
 function renderBoard() {
     var strHTML = '<table border="0"><tbody>';
@@ -126,16 +134,16 @@ function gameOver(isWin) {
         var secStr = document.querySelector('.sec').innerText
         var timeUnits = minStr === '00' ? 'seconds' : 'minutes'
         elEndMsg.innerText = `YOU WON! You did it in ${minStr}:${secStr} ${timeUnits}!`
-        elEndMsg.style.color = 'lightgreen'
+        elEndMsg.style.color = 'green'
         elSmiley.src = 'img/win.png'
 
         var bestTime = localStorage.getItem('bestTime')
         var currTime = +minStr * 60 * 1000 + +secStr * 1000
         if (currTime < bestTime || !bestTime) {
             localStorage.setItem('bestTime', `${currTime}`)
-            showBestTime(currTime)
+            displayTime(currTime)
         }
-        else showBestTime(bestTime)
+        else displayTime(bestTime)
 
     } else {
         //LOSE:
@@ -161,14 +169,14 @@ function gameOver(isWin) {
     elEndMsg.classList.remove('hidden')
 }
 
-function showBestTime(ms) {
+function displayTime(ms, selector='.best') {
     var minutes = parseInt(ms / 1000 / 60)
     var seconds = (ms - (minutes * 60 * 1000)) / 1000
     var minStr = minutes < 10 ? '0' + minutes : minutes
     var secStr = seconds < 10 ? '0' + seconds : seconds
-    var elBestTime = document.querySelector('.best')
-    elBestTime.innerText = `Best Time: ${minStr}:${secStr}`
-    elBestTime.classList.remove('hidden');
+    var el = document.querySelector(selector)
+    el.innerText = `Best Time: ${minStr}:${secStr}`
+    el.classList.remove('hidden');
 }
 
 function smileyClick() {

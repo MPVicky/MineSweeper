@@ -49,7 +49,7 @@ function cellMarked(elCell, ev, i, j) {
         if (!gGame.minesLeft) {
             var elMsg = document.querySelector('.msg');
             elMsg.innerText = `NO FLAGS LEFT!`
-            elMsg.style.color = 'lightblue'
+            elMsg.style.color = 'darkblue'
             elMsg.classList.remove('hidden')
             setTimeout(() => elMsg.classList.add('hidden'), 500);
             return;
